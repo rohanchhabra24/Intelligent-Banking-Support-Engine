@@ -14,7 +14,7 @@ from langchain.llms.fake import FakeListLLM
 from langchain_community.embeddings import FakeEmbeddings
 import concurrent.futures
 
-st.set_page_config(page_title="Intelligent Banking Support Analytics", layout="wide")
+st.set_page_config(page_title="Module 9 : ML pipeline creation at scale using SparkML, and LLM application engineering", layout="wide")
 
 # Custom CSS
 st.markdown("""
@@ -84,7 +84,7 @@ Issue:
     
     return final_response
 
-st.markdown('<div class="main-header">Banking Operations Analytics Platform</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header">Module 9 : ML pipeline creation at scale using SparkML, and LLM application engineering</div>', unsafe_allow_html=True)
 
 try:
     spark = init_spark()
