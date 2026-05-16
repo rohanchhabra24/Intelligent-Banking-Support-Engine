@@ -1,0 +1,473 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║              ESCALATION & RESOLUTION PROCEDURES SOP               ║
+║                   Standard Operating Procedure                    ║
+║                       Document ID: SOP-ESC-001                    ║
+║                        Effective Date: Jan 2025                   ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. PURPOSE & SCOPE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This SOP defines the escalation matrix, resolution procedures, and SLA (Service Level Agreements) for all customer support tickets in the banking operations system.
+
+SCOPE: All support channels including:
+- Phone support (1-800-BANK-911)
+- Email support (support@bank.com)
+- Web chat support
+- Mobile app support
+- Branch walk-in support
+
+APPLIES TO:
+- L1 Support Agents
+- L2 Technical Specialists
+- L3 System Engineers
+- L4 Vendor Support
+- Management Team
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. PRIORITY CLASSIFICATION MATRIX
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────┬──────────────────────────────────────────────────┐
+│  PRIORITY   │                  DEFINITION                      │
+├─────────────┼──────────────────────────────────────────────────┤
+│  CRITICAL   │ • System-wide outage affecting all customers    │
+│   (P0)      │ • Core banking system down                       │
+│             │ • Security breach or data leak                   │
+│             │ • Regulatory deadline at risk                    │
+│             │ • Financial impact >$100,000                     │
+│             │ • Affected customers >1,000                      │
+│             │                                                  │
+│  Response:  │ 15 minutes (24/7)                               │
+│ Resolution: │ 4 hours                                          │
+├─────────────┼──────────────────────────────────────────────────┤
+│    HIGH     │ • Multiple customers affected (100-1000)         │
+│    (P1)     │ • Critical service degraded but functional       │
+│             │ • Payment processing delays                      │
+│             │ • ATM network partially down                     │
+│             │ • Fraud detection system issues                  │
+│             │ • Financial impact $10K-$100K                    │
+│             │                                                  │
+│  Response:  │ 1 hour (business hours), 2 hours (after hours)  │
+│ Resolution: │ 8 hours                                          │
+├─────────────┼──────────────────────────────────────────────────┤
+│   MEDIUM    │ • Individual customer impact (10-100 customers)  │
+│    (P2)     │ • Functional issue with workaround available     │
+│             │ • Non-critical service impaired                  │
+│             │ • Report generation delays                       │
+│             │ • Minor data discrepancies                       │
+│             │ • Financial impact $1K-$10K                      │
+│             │                                                  │
+│  Response:  │ 4 hours (business hours)                         │
+│ Resolution: │ 24 hours                                         │
+├─────────────┼──────────────────────────────────────────────────┤
+│     LOW     │ • Single customer affected                       │
+│    (P3)     │ • Enhancement requests                           │
+│             │ • Cosmetic issues                                │
+│             │ • Documentation updates                          │
+│             │ • Training requests                              │
+│             │ • Financial impact <$1K                          │
+│             │                                                  │
+│  Response:  │ 8 hours (business hours)                         │
+│ Resolution: │ 5 business days                                  │
+└─────────────┴──────────────────────────────────────────────────┘
+
+PRIORITY AUTO-ASSIGNMENT RULES:
+IF impact = "1-High" AND urgency = "1-High" → CRITICAL
+IF impact = "1-High" OR urgency = "1-High" → HIGH
+IF impact = "2-Medium" AND urgency = "2-Medium" → MEDIUM
+ELSE → LOW
+
+OVERRIDE CONDITIONS:
+- Regulatory_risk = "Yes" → Escalate one level
+- Affected_customers >500 → Escalate to HIGH minimum
+- Financial_impact >$50K → Escalate to HIGH minimum
+- Core_banking_system involved → Escalate to CRITICAL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. ESCALATION PATH & RESPONSIBILITIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│ LEVEL 1 (L1): FIRST LINE SUPPORT                               │
+└─────────────────────────────────────────────────────────────────┘
+
+TEAM: Customer Support Agents
+AVAILABILITY: 24/7/365
+AVERAGE TICKETS HANDLED: 70% of total volume
+
+RESPONSIBILITIES:
+✓ Initial ticket creation and categorization
+✓ Password resets and account unlocks
+✓ Basic troubleshooting (guided by knowledge base)
+✓ Transaction status inquiries
+✓ Balance and statement requests
+✓ Card activation and blocking
+✓ Customer information updates
+✓ Redirect complex issues to L2
+
+ESCALATION CRITERIA TO L2:
+→ Technical error codes requiring system investigation
+→ Unable to resolve within 30 minutes
+→ Requires access to backend systems
+→ Customer requests supervisor
+→ Security/fraud concerns
+
+TOOLS AVAILABLE:
+- CRM system with customer 360° view
+- Knowledge base and FAQ access
+- Basic account management portal
+- Script library for common scenarios
+- Chat, email, phone systems
+
+┌─────────────────────────────────────────────────────────────────┐
+│ LEVEL 2 (L2): TECHNICAL SPECIALISTS                            │
+└─────────────────────────────────────────────────────────────────┘
+
+TEAM: Technical Support Engineers
+AVAILABILITY: 24/7 (on-call rotation after hours)
+AVERAGE TICKETS HANDLED: 25% of total volume
+
+RESPONSIBILITIES:
+✓ Advanced troubleshooting and root cause analysis
+✓ System configuration changes
+✓ Database queries and data corrections
+✓ Integration issues (APIs, third-party systems)
+✓ Performance optimization
+✓ Security incident initial response
+✓ Vendor coordination for product issues
+✓ Create workarounds for known bugs
+
+ESCALATION CRITERIA TO L3:
+→ Core banking system modifications needed
+→ Code changes or patches required
+→ Database schema modifications
+→ Infrastructure/server issues
+→ Issue persists >4 hours without resolution
+
+TOOLS AVAILABLE:
+- Full admin access to all systems
+- Database query tools
+- Log aggregation and monitoring dashboards
+- API testing tools
+- Configuration management systems
+
+┌─────────────────────────────────────────────────────────────────┐
+│ LEVEL 3 (L3): SYSTEM ENGINEERS & DEVELOPERS                    │
+└─────────────────────────────────────────────────────────────────┘
+
+TEAM: DevOps Engineers, Backend Developers, DBAs
+AVAILABILITY: Business hours + on-call for CRITICAL
+AVERAGE TICKETS HANDLED: 4% of total volume
+
+RESPONSIBILITIES:
+✓ Code bug fixes and patches
+✓ Database performance tuning
+✓ Infrastructure scaling and optimization
+✓ Architecture changes
+✓ Deployment of fixes to production
+✓ Security vulnerability patching
+✓ Disaster recovery execution
+✓ System health monitoring and proactive fixes
+
+ESCALATION CRITERIA TO L4:
+→ Third-party vendor product defects
+→ Requires vendor-specific knowledge
+→ Hardware failures (ATM, servers)
+→ Licensed software issues
+→ Contractual vendor obligations
+
+TOOLS AVAILABLE:
+- Source code repository access
+- Production deployment pipelines
+- Server and infrastructure management
+- Advanced monitoring and alerting
+- Database administration tools
+
+┌─────────────────────────────────────────────────────────────────┐
+│ LEVEL 4 (L4): VENDOR SUPPORT                                   │
+└─────────────────────────────────────────────────────────────────┘
+
+TEAM: Third-party Vendors (ATM manufacturer, Core Banking provider, etc.)
+AVAILABILITY: Per contract (usually business hours + emergency hotline)
+AVERAGE TICKETS HANDLED: <1% of total volume
+
+RESPONSIBILITIES:
+✓ Product-specific bug fixes
+✓ Hardware replacements
+✓ Software patches and updates
+✓ Specialized troubleshooting
+✓ Contractual SLA fulfillment
+
+ESCALATION CRITERIA TO MANAGEMENT:
+→ Vendor not meeting SLA
+→ Vendor unwilling/unable to resolve
+→ Requires contract renegotiation
+→ Financial penalties or compensation needed
+
+VENDOR CONTRACTS:
+- ATM Vendor: NCR Corporation (Contract #ATM-2024-001)
+  Support: 1-800-NCR-HELP, Response: 4 hours, Resolution: 24 hours
+  
+- Core Banking: Temenos (Contract #CBS-2023-005)
+  Support: support@temenos.com, Response: 2 hours, Resolution: 12 hours
+  
+- Payment Gateway: Razorpay (Contract #PG-2024-012)
+  Support: 1-800-RAZOR-99, Response: 1 hour, Resolution: 4 hours
+
+┌─────────────────────────────────────────────────────────────────┐
+│ MANAGEMENT ESCALATION                                           │
+└─────────────────────────────────────────────────────────────────┘
+
+TEAM: Head of Operations, CTO, CEO
+AVAILABILITY: Critical issues only (24/7 for P0)
+
+ESCALATION CRITERIA:
+→ CRITICAL priority not resolved in 4 hours
+→ HIGH priority not resolved in 24 hours
+→ Widespread customer complaints/PR risk
+→ Regulatory authority inquiry
+→ Legal implications
+→ Vendor contract disputes
+→ Major financial loss (>$500K)
+
+RESPONSIBILITIES:
+✓ Strategic decision making
+✓ Resource allocation
+✓ External communications (media, regulators)
+✓ Vendor escalations
+✓ Policy changes
+✓ Compensation approvals
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. TICKET LIFECYCLE & WORKFLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: TICKET CREATION
+→ Customer contacts support via any channel
+→ Agent logs ticket in CRM system
+→ Auto-assigns ticket number (INC0000XXX)
+→ Captures: Contact type, category, description, priority
+→ Auto-notification sent to customer with ticket number
+
+STEP 2: INITIAL ASSESSMENT (L1)
+→ Agent reviews ticket details
+→ Searches knowledge base for similar issues
+→ Attempts first-level resolution
+→ Timeline: 15-30 minutes
+→ If resolved: Move to Step 6
+→ If not resolved: Move to Step 3
+
+STEP 3: ESCALATION TO L2
+→ Agent clicks "Escalate" button in CRM
+→ Adds escalation notes with troubleshooting attempted
+→ Ticket auto-routed to L2 queue
+→ L2 picks up within SLA timeframe
+→ L2 performs detailed investigation
+
+STEP 4: TECHNICAL RESOLUTION (L2/L3)
+→ Root cause identified
+→ Solution implemented (fix, workaround, or escalate to L3)
+→ Solution tested in staging environment if applicable
+→ Change management approval for production changes
+→ Deploy fix to production
+→ Verify issue resolved in production
+
+STEP 5: CUSTOMER COMMUNICATION
+→ Call/email customer with resolution
+→ Explain what was fixed and any preventive measures
+→ Confirm customer satisfaction
+→ Document resolution in ticket notes
+
+STEP 6: TICKET CLOSURE
+→ Update ticket status to "Resolved"
+→ Select close code (e.g., "Configuration Fixed", "User Error")
+→ Add detailed close notes
+→ Customer receives closure notification
+→ CSAT survey sent (Customer Satisfaction)
+→ Ticket auto-closes after 48 hours if no response
+
+STEP 7: POST-CLOSURE MONITORING
+→ Monitor for ticket reopening within 7 days
+→ If reopened: Treat as HIGH priority
+→ Analyze trends for proactive fixes
+→ Update knowledge base with new solutions
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5. COMMUNICATION PROTOCOLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CUSTOMER COMMUNICATION:
+
+Initial Response:
+- Acknowledge receipt within SLA
+- Set expectations on resolution time
+- Provide ticket reference number
+- Explain next steps
+
+Progress Updates:
+- CRITICAL: Every 30 minutes
+- HIGH: Every 2 hours
+- MEDIUM: Every 8 hours
+- LOW: Every 24 hours
+
+Communication Channels:
+- Email: All priority levels
+- SMS: CRITICAL and HIGH only
+- Phone call: CRITICAL or upon customer request
+- In-app notification: All levels
+
+INTERNAL COMMUNICATION:
+
+Escalation Handoff:
+- Use ticket comment system
+- Tag the next level team
+- Summarize issue and steps taken
+- Attach relevant logs/screenshots
+- Set expectation on urgency
+
+Status Meetings:
+- Daily standup: Review CRITICAL and HIGH tickets
+- Weekly review: Trends and recurring issues
+- Monthly: SLA compliance and team performance
+
+War Room (Critical Incidents):
+- Triggered for CRITICAL priority issues
+- Conference bridge: 1-800-WAR-ROOM
+- Frequency: Every 30 minutes until resolution
+- Attendees: L2/L3 teams, Management, Vendors
+- Status updates posted to status page
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6. SLA TRACKING & COMPLIANCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SLA METRICS:
+
+First Response Time (FRT):
+- Time from ticket creation to first agent response
+- Target: 100% within priority-specific SLA
+- Measured: Business hours vs 24/7 based on priority
+
+Resolution Time:
+- Time from ticket creation to resolution
+- Excludes customer wait time
+- Measured: Working hours only for P2/P3
+
+Customer Satisfaction (CSAT):
+- Survey sent after ticket closure
+- Scale: 1 (Very Unsatisfied) to 5 (Very Satisfied)
+- Target: Average >4.2
+
+First Contact Resolution (FCR):
+- Percentage of tickets resolved by L1 without escalation
+- Target: >60%
+
+SLA BREACH HANDLING:
+
+Warning Alerts:
+- 75% of SLA time elapsed → Alert assigned agent
+- 90% of SLA time elapsed → Alert team lead
+- 100% of SLA time elapsed → Escalate to management
+
+Breach Consequences:
+- CRITICAL breach: Immediate management notification
+- HIGH breach: Incident report required
+- MEDIUM/LOW breach: Tracked for performance review
+
+SLA Exemptions:
+- Customer requested delay
+- Waiting for customer response (pauses clock)
+- Force majeure events (natural disasters, etc.)
+- Vendor dependency with documented evidence
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+7. SPECIAL PROCEDURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+VIP CUSTOMER HANDLING:
+- Identified by: Account balance >$1M or Platinum tier
+- Auto-priority: Minimum MEDIUM, escalate to HIGH if service issue
+- Dedicated support line: 1-800-VIP-BANK
+- Personal account manager involved in resolution
+
+FRAUD & SECURITY INCIDENTS:
+- All fraud tickets → Immediate HIGH priority
+- Security team cc'd on all fraud tickets
+- Customer account frozen if unauthorized activity
+- Law enforcement contacted for amounts >$10K
+- Fraud investigation within 24 hours
+- Provisional credit issued within 10 business days
+
+REGULATORY INQUIRIES:
+- Any ticket mentioning: RBI, SEBI, regulator, audit
+- Auto-escalate to Compliance team
+- Legal team consulted before response
+- All communications logged and retained
+- Response timeline: Per regulatory requirement (usually 15 days)
+
+SOCIAL MEDIA COMPLAINTS:
+- Monitor: Twitter, Facebook, LinkedIn for mentions
+- Response: Within 1 hour during business hours
+- Convert to formal ticket for tracking
+- Priority: Minimum MEDIUM due to public visibility
+- Marketing/PR team involved for reputation management
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+8. CONTINUOUS IMPROVEMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ROOT CAUSE ANALYSIS (RCA):
+- Mandatory for all CRITICAL incidents
+- Optional for recurring issues (>5 instances/month)
+- Format: 5 Whys or Fishbone diagram
+- Deliverable: Action items with owners and deadlines
+
+KNOWLEDGE BASE UPDATES:
+- After every unique issue resolution
+- Monthly review of FAQ accuracy
+- Customer-facing vs internal documentation
+- Version control and approval workflow
+
+PROCESS IMPROVEMENTS:
+- Quarterly SOP review
+- Team feedback sessions
+- Customer feedback analysis
+- Industry best practices adoption
+
+TRAINING & DEVELOPMENT:
+- New hire training: 2 weeks classroom + 2 weeks shadowing
+- Ongoing training: Monthly knowledge sharing sessions
+- Certification: L1→L2 promotion requires technical certification
+- Cross-training: L2 agents rotate through different specializations
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+9. APPENDICES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+APPENDIX A: ESCALATION EMAIL TEMPLATES
+APPENDIX B: Close Codes & Definitions
+APPENDIX C: Contact Directory
+APPENDIX D: Holiday & After-Hours Coverage
+APPENDIX E: Disaster Recovery Procedures
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                        DOCUMENT CONTROL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Document ID: SOP-ESC-001
+Version: 3.0
+Effective Date: January 1, 2025
+Review Date: July 1, 2025
+Owner: Head of Customer Support Operations
+Approved by: Chief Operations Officer
+
+Revision History:
+v1.0 - Jan 2023 - Initial version
+v2.0 - Jan 2024 - Added L4 vendor escalation
+v3.0 - Jan 2025 - Updated SLAs and priority matrix
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                          END OF SOP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
