@@ -1,0 +1,736 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║         TECHNICAL TROUBLESHOOTING GUIDE - SUPPORT MANUAL          ║
+║                    Banking Systems & Services                     ║
+║                         Version 3.2 - 2025                        ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TABLE OF CONTENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CHAPTER 1: ATM Systems Troubleshooting........................ Page 2
+CHAPTER 2: Online Banking Platform Issues...................... Page 8
+CHAPTER 3: Mobile Application Diagnostics...................... Page 14
+CHAPTER 4: Payment Gateway Problems............................ Page 19
+CHAPTER 5: Core Banking System Errors.......................... Page 24
+CHAPTER 6: Network & Connectivity Issues....................... Page 30
+CHAPTER 7: Security & Fraud Detection.......................... Page 35
+CHAPTER 8: Database & Performance Tuning....................... Page 40
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 1: ATM SYSTEMS TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ISSUE 1.1: ATM CASH DISPENSER NOT WORKING                      │
+└─────────────────────────────────────────────────────────────────┘
+
+SYMPTOMS:
+- ATM accepts card but doesn't dispense cash
+- Error message: "Cash dispenser error - E101"
+- Cash cassette appears full but dispenser inactive
+- Customer account debited but no cash dispensed
+
+ROOT CAUSES:
+1. Cash cassette jam or misalignment
+2. Dispenser module hardware failure
+3. Cash thickness sensor malfunction
+4. Firmware version mismatch
+5. Power supply issue to dispenser unit
+
+DIAGNOSTIC STEPS:
+
+Step 1: Check Error Logs
+→ Access ATM supervisor mode (PIN: ********)
+→ Navigate to: System > Logs > Dispenser Errors
+→ Note error code and timestamp
+→ Common codes: E101 (hardware), E102 (jam), E103 (sensor)
+
+Step 2: Visual Inspection
+→ Open ATM safe door (requires two-key authorization)
+→ Check cash cassettes are properly seated
+→ Look for torn notes or foreign objects
+→ Verify cassette locks engaged properly
+→ Check dispenser belt alignment
+
+Step 3: Sensor Test
+→ Run diagnostic: Tools > Hardware Test > Cash Sensor
+→ Expected result: PASS within 5 seconds
+→ If FAIL: Clean sensors with isopropyl alcohol
+→ Retest after cleaning
+
+Step 4: Manual Dispense Test
+→ Load test cassette with clean notes
+→ Run: Tools > Manual Dispense > Test Mode
+→ Dispense 1 note at slow speed
+→ If successful: Issue is cassette-related
+→ If fails: Hardware replacement needed
+
+RESOLUTION PROCEDURES:
+
+Quick Fix (10-15 minutes):
+1. Remove and reseat all cash cassettes
+2. Clear any jammed notes from dispenser path
+3. Run calibration: Tools > Calibrate Dispenser
+4. Perform test transaction with test card
+5. If successful: Return ATM to service
+6. Update incident log with resolution
+
+Hardware Replacement (2-4 hours):
+1. Contact ATM vendor: 1-800-ATM-VENDOR
+2. Order replacement dispenser module (Part# DM-9000)
+3. Schedule field technician visit
+4. Swap module following service manual procedures
+5. Run full diagnostic suite post-replacement
+6. Certify ATM operational before customer use
+
+PREVENTIVE MAINTENANCE:
+- Clean dispenser sensors: Weekly
+- Lubricate dispenser belt: Monthly
+- Replace worn parts: Quarterly
+- Firmware updates: As released
+- Full hardware audit: Annually
+
+ESCALATION:
+L1 → Remote diagnostics and reset attempts
+L2 → On-site technician for hardware issues
+L3 → Vendor support for complex failures
+Critical: If ATM serves >500 transactions/day
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ISSUE 1.2: ATM NETWORK CONNECTIVITY FAILURE                    │
+└─────────────────────────────────────────────────────────────────┘
+
+SYMPTOMS:
+- "Cannot connect to bank network" message
+- All transactions timing out
+- ATM shows "Out of Service"
+- Green network LED not lit
+
+ROOT CAUSES:
+1. ISP network outage
+2. Router/switch failure
+3. Firewall blocking ATM traffic
+4. VPN tunnel disconnection
+5. DNS resolution failure
+
+DIAGNOSTIC STEPS:
+
+Step 1: Physical Connection Check
+→ Verify Ethernet cable connected (should have green link light)
+→ Check router power status
+→ Inspect cable for physical damage
+→ Try different Ethernet port on router
+
+Step 2: Network Diagnostics
+→ Access supervisor mode
+→ Run: Network > Diagnostics > Ping Test
+→ Ping gateway: 192.168.1.1 (should respond <10ms)
+→ Ping core server: 10.50.0.100 (should respond <50ms)
+→ If no response: Network path broken
+
+Step 3: VPN Status Check
+→ Navigate to: Network > VPN Status
+→ Expected: "Connected" with green indicator
+→ If "Disconnected": Check VPN credentials
+→ Reconnect: Network > VPN > Reconnect
+
+Step 4: DNS Resolution
+→ Run: Network > DNS Test
+→ Try resolving: corebank.internal.net
+→ Expected: IP address returned
+→ If failed: Update DNS servers in config
+
+RESOLUTION:
+
+Network Restart (5 minutes):
+1. Power cycle router: OFF for 30 seconds
+2. Restart ATM: Supervisor > System > Restart
+3. Wait for full boot cycle (3-5 minutes)
+4. Verify network connectivity restored
+5. Run test transaction
+
+VPN Reconfiguration (15 minutes):
+1. Delete existing VPN profile
+2. Import new profile: vpn_config_2025.ovpn
+3. Enter credentials: ATM_ID@bank.internal / <password>
+4. Connect and verify encrypted tunnel
+5. Ping core server to confirm
+
+Emergency Failover (Immediate):
+1. Switch to backup ISP connection
+2. Update routing table to use secondary link
+3. Monitor for primary ISP restoration
+4. Auto-failback configured after 30 minutes uptime
+
+MONITORING:
+- Network uptime: >99.9% SLA
+- Ping latency: <50ms threshold
+- Packet loss: <0.1% acceptable
+- VPN reconnects: <3 per month normal
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 2: ONLINE BANKING PLATFORM ISSUES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ISSUE 2.1: USER UNABLE TO LOGIN - AUTHENTICATION FAILURES      │
+└─────────────────────────────────────────────────────────────────┘
+
+SYMPTOMS:
+- "Invalid username or password" error
+- Account locked after multiple attempts
+- CAPTCHA not loading
+- Two-factor authentication not working
+
+DIAGNOSTIC STEPS:
+
+Step 1: Verify Account Status
+→ Login to admin portal: admin.bank.com
+→ Search user by username or account number
+→ Check status field:
+   • Active: Normal state
+   • Locked: After 3 failed attempts (auto-unlock 30 min)
+   • Suspended: Manual intervention required
+   • Disabled: Account closed
+
+Step 2: Password Validation
+→ Reset password attempt logs
+→ Check for special character encoding issues
+→ Common problem: Copy-paste adding hidden characters
+→ Solution: Type password manually
+
+Step 3: 2FA Investigation
+→ Verify registered mobile number in system
+→ Check SMS gateway logs for delivery status
+→ Alternative: Use authenticator app OTP
+→ Fallback: Email OTP option
+
+Step 4: Browser Compatibility
+→ Supported: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+→ Clear browser cache and cookies
+→ Disable browser extensions (may interfere)
+→ Try incognito/private mode
+
+RESOLUTION:
+
+Manual Account Unlock (2 minutes):
+1. Admin portal > User Management > Search user
+2. Click "Unlock Account" button
+3. Optional: Reset failed login counter
+4. Notify user via email of unlock
+5. Log action in audit trail
+
+Password Reset (5 minutes):
+1. Generate temporary password: Tools > Generate Temp Password
+2. Send to registered email with 24-hour expiry
+3. Force password change on next login
+4. Password requirements:
+   - Minimum 8 characters
+   - 1 uppercase, 1 lowercase, 1 number, 1 special char
+   - Cannot reuse last 5 passwords
+
+2FA Troubleshooting:
+1. Verify mobile number: User Profile > Contact Info
+2. Test SMS delivery: Tools > Send Test SMS
+3. If SMS failing: Switch to authenticator app
+4. Register new device: Security > 2FA > Add Device
+5. Backup codes: Generate 10 codes for emergencies
+
+Session Management:
+1. Clear all active sessions: User > Sessions > Clear All
+2. Force re-login
+3. Check for suspicious login locations
+4. Enable IP whitelisting if needed
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ISSUE 2.2: TRANSACTION FAILURES - FUND TRANSFER ERRORS         │
+└─────────────────────────────────────────────────────────────────┘
+
+SYMPTOMS:
+- "Transaction failed - E303" error
+- Money deducted but transfer pending
+- Beneficiary not receiving funds
+- Timeout during processing
+
+ROOT CAUSES:
+1. Database connection pool exhausted
+2. Core banking API timeout (>30 seconds)
+3. Insufficient funds verification lag
+4. Beneficiary account validation failure
+5. Network latency during peak hours
+
+DIAGNOSTIC WORKFLOW:
+
+Step 1: Transaction Status Check
+→ Admin portal > Transactions > Search by reference ID
+→ Possible statuses:
+   • Success: Completed successfully
+   • Pending: Awaiting processing
+   • Failed: Rolled back
+   • Timeout: Requires investigation
+   • Retry: Auto-retry in queue
+
+Step 2: Account Balance Verification
+→ Check source account real-time balance
+→ Compare with available balance (minus holds)
+→ Verify transaction amount + fees < available balance
+→ Look for duplicate holds from retries
+
+Step 3: Beneficiary Validation
+→ Verify beneficiary account number format
+→ IFSC code validation for NEFT/RTGS
+→ Account active status check
+→ Bank name-IFSC mismatch detection
+
+Step 4: System Health Check
+→ Monitor > System Health Dashboard
+→ Check metrics:
+   • API response time: <2000ms normal
+   • Database connections: <80% pool usage
+   • Transaction queue: <100 pending
+   • Error rate: <1% acceptable
+
+RESOLUTION STEPS:
+
+Immediate Retry (For timeouts):
+1. Locate transaction in admin panel
+2. Click "Retry Transaction" button
+3. System will check for duplicate processing
+4. If duplicate exists: Mark original as success
+5. If not: Reprocess with fresh API call
+
+Manual Processing (For persistent failures):
+1. Note transaction details
+2. Login to core banking directly
+3. Initiate manual fund transfer
+4. Update transaction status in portal
+5. Send confirmation email to customer
+6. Mark for system investigation
+
+Rollback (If funds stuck):
+1. Transactions > Select transaction > Rollback
+2. System will reverse debit from source account
+3. Notification sent to customer
+4. Transaction marked as "Failed - Rolled Back"
+5. Customer can retry with new transaction
+
+PREVENTION:
+- Increase DB connection pool: 200 → 500
+- Add API timeout retry logic: 3 attempts
+- Implement circuit breaker pattern
+- Cache beneficiary validation results
+- Load balance during peak hours (12 PM - 2 PM, 6 PM - 8 PM)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 3: MOBILE APPLICATION DIAGNOSTICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ISSUE 3.1: APP CRASHES OR FREEZES                              │
+└─────────────────────────────────────────────────────────────────┘
+
+SYMPTOMS:
+- App closes immediately on launch
+- Freezes on loading screen
+- Crashes during specific actions (e.g., login, fund transfer)
+- White screen or blank display
+
+DIAGNOSTIC STEPS:
+
+Step 1: Collect Crash Logs
+→ Request user to enable crash reporting
+→ Android: Settings > Developer Options > Bug Report
+→ iOS: Settings > Privacy > Analytics > Share With App Developers
+→ Crash logs location: Firebase Crashlytics dashboard
+
+Step 2: Identify Pattern
+→ Analyze crash reports by:
+   • Device model (Samsung, iPhone, etc.)
+   • OS version (Android 11+, iOS 14+)
+   • App version
+   • Specific screen/action causing crash
+
+Step 3: Reproduce Issue
+→ Set up test device matching user's configuration
+→ Follow exact steps user reported
+→ Use debug build to get detailed logs
+→ Monitor memory usage and CPU spikes
+
+Common Crash Causes:
+
+Memory Leak:
+- Symptom: App slows down then crashes
+- Detection: Memory usage grows continuously
+- Fix: Release unused objects, optimize image caching
+- Code review: Check for retain cycles (iOS) or static references (Android)
+
+API Response Parsing Error:
+- Symptom: Crash when specific data loads
+- Detection: Crash log shows JSON parsing exception
+- Fix: Add null checks and try-catch blocks
+- Validate API response schema
+
+Permission Issues:
+- Symptom: Crash when accessing camera/location
+- Detection: Permission denial in logs
+- Fix: Request permissions before usage
+- Fallback: Graceful handling of denied permissions
+
+RESOLUTION:
+
+Quick Fix (User-side):
+1. Clear app cache: Settings > Apps > Bank App > Clear Cache
+2. Force stop app
+3. Restart device
+4. Reinstall app (won't lose login, stored in keychain)
+5. Update to latest app version
+
+Developer Fix (For persistent bugs):
+1. Identify root cause from crash logs
+2. Create hotfix branch in Git
+3. Implement fix with comprehensive testing
+4. Submit update to Play Store / App Store
+5. Expedited review request (if critical)
+6. Push notification to users for update
+
+Workaround (While fix is in progress):
+1. Disable problematic feature via server-side feature flag
+2. Show maintenance message for that feature
+3. Offer web banking alternative
+4. Track user impact and prioritize fix
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ISSUE 3.2: BIOMETRIC AUTHENTICATION FAILURE                    │
+└─────────────────────────────────────────────────────────────────┘
+
+SYMPTOMS:
+- Fingerprint not recognized
+- Face ID failing repeatedly
+- "Biometric hardware not available" error
+- Prompts for password despite biometric enabled
+
+DIAGNOSTIC STEPS:
+
+Step 1: Device Compatibility Check
+→ Verify device has biometric hardware
+→ Android: BiometricManager.canAuthenticate()
+→ iOS: LAContext.canEvaluatePolicy()
+→ Check minimum OS version: Android 6.0+, iOS 11.0+
+
+Step 2: Permission Verification
+→ Android: USE_BIOMETRIC permission in manifest
+→ iOS: NSFaceIDUsageDescription in Info.plist
+→ User granted permission: Settings > App > Permissions
+
+Step 3: Biometric Enrollment
+→ Check if user has enrolled biometrics on device
+→ Android: Settings > Security > Fingerprint/Face
+→ iOS: Settings > Face ID & Passcode
+→ At least one biometric required
+
+RESOLUTION:
+
+Re-enable Biometric Login:
+1. App Settings > Security > Biometric Login
+2. Toggle OFF then ON
+3. Re-authenticate with password
+4. Register biometric again
+5. Test with fingerprint/face
+
+Fallback to PIN:
+1. Always provide PIN/password fallback
+2. User preference: Some disable biometric intentionally
+3. After 3 biometric failures: Auto-prompt for PIN
+4. Security: Lock account after 5 total failures
+
+Device-Specific Issues:
+
+Samsung Devices:
+- Issue: Samsung Pass interference
+- Fix: Disable Samsung Pass for banking app
+- Settings > Biometrics > Samsung Pass > Exclude Apps
+
+iPhone X+ (Face ID):
+- Issue: Face ID fails with mask
+- Fix: Update to iOS 15.4+ (supports masks)
+- Alternative: Enable Apple Watch unlock
+
+Huawei Devices:
+- Issue: App killed by battery optimizer
+- Fix: Settings > Battery > App Launch > Bank App > Manage Manually
+- Disable all battery restrictions
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 4: PAYMENT GATEWAY PROBLEMS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ISSUE 4.1: PAYMENT GATEWAY TIMEOUT                             │
+└─────────────────────────────────────────────────────────────────┘
+
+SYMPTOMS:
+- Transaction stuck at "Processing payment..."
+- Gateway page not loading
+- Timeout error after 30-60 seconds
+- User redirected to error page
+
+DIAGNOSTIC FLOW:
+
+Step 1: Check Gateway Status
+→ Visit status page: status.paymentgateway.com
+→ Check operational status of payment methods
+→ Look for scheduled maintenance announcements
+→ Test with different payment method (card/UPI/netbanking)
+
+Step 2: Transaction Tracking
+→ Admin portal > Payments > Search by order ID
+→ Check gateway transaction ID (if available)
+→ Status possibilities:
+   • Initiated: User redirected to gateway
+   • Pending: Payment in progress
+   • Success: Completed
+   • Failed: Declined or error
+   • Timeout: No response from gateway
+
+Step 3: Duplicate Transaction Check
+→ Search by customer ID + amount + timestamp (±5 min)
+→ If duplicate exists: One is likely successful
+→ Prevent double charging
+
+Step 4: Gateway Logs Analysis
+→ Access gateway webhook logs
+→ Check for callback received
+→ Verify signature/checksum validation
+→ Look for network errors or 5xx responses
+
+RESOLUTION PROCEDURES:
+
+Auto-Reconciliation (Runs every 30 minutes):
+1. Query gateway API for pending transactions
+2. Update local database with latest status
+3. Send confirmation email if payment successful
+4. Process refund if payment failed but money debited
+
+Manual Reconciliation:
+1. Login to payment gateway portal
+2. Download transaction report for date range
+3. Compare with internal database
+4. Update mismatched statuses
+5. Initiate refund for double charges
+
+Timeout Handling:
+1. Increase gateway timeout: 30s → 90s
+2. Implement retry mechanism with exponential backoff
+3. Show clear message: "Payment processing - Don't refresh"
+4. Auto-refund after 7 days if status unknown
+
+Customer Communication:
+1. Email template: "Payment status being verified"
+2. Mention: 5-7 business days for auto-refund
+3. Provide reference number for tracking
+4. Option to contact support for urgent resolution
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ISSUE 4.2: PAYMENT DECLINED - CARD ISSUES                      │
+└─────────────────────────────────────────────────────────────────┘
+
+SYMPTOMS:
+- "Payment declined by bank" message
+- "Insufficient funds" error (but balance available)
+- "Card not supported" error
+- International card rejection
+
+DECLINE REASON CODES:
+
+Code 51: Insufficient Funds
+→ Check actual available balance vs transaction amount
+→ Consider pending transactions and holds
+→ Verify daily/monthly spending limit not exceeded
+
+Code 54: Expired Card
+→ Validate card expiry date: MM/YY format
+→ Check if renewal card issued but not activated
+
+Code 61: Exceeds Withdrawal Limit
+→ Daily ATM limit: Usually $500-1000
+→ Online transaction limit: Configurable per card
+→ Contact issuing bank to increase limit
+
+Code 65: Exceeds Frequency Limit
+→ Too many transactions in short time
+→ Anti-fraud measure
+→ Wait 15 minutes before retry
+
+Code 91: Issuer Not Available
+→ Card issuing bank system down
+→ Retry after some time
+→ Use alternative payment method
+
+TROUBLESHOOTING STEPS:
+
+Card Validation:
+1. Verify card number passes Luhn algorithm
+2. Check CVV is 3 digits (4 for Amex)
+3. Validate expiry date not in past
+4. Ensure billing address matches card records
+
+3D Secure (OTP) Issues:
+1. Check mobile number registered with bank
+2. Verify OTP SMS delivered (check with telecom)
+3. OTP validity: 5 minutes usually
+4. After 3 wrong OTP: Card may be temporarily blocked
+
+International Card Processing:
+1. Enable international transactions on card
+2. Check currency conversion support
+3. Dynamic Currency Conversion (DCC) setting
+4. Verify merchant category code (MCC) allowed
+
+CUSTOMER GUIDANCE:
+
+Inform customer to:
+1. Verify sufficient balance including transaction fee
+2. Check card is activated and not expired
+3. Ensure international transactions enabled (if applicable)
+4. Try different card if issue persists
+5. Contact card issuing bank for specific decline reason
+6. Use alternative payment: UPI, net banking, wallet
+
+MERCHANT CONFIGURATION:
+- Accept multiple card networks: Visa, Mastercard, Rupay, Amex
+- Support multiple payment modes: Card, UPI, Net Banking, Wallets
+- Clear error messages with actionable guidance
+- Retry option with different payment method
+- Save card details securely for faster checkout (PCI-DSS compliant)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 5: CORE BANKING SYSTEM ERRORS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ISSUE 5.1: DATABASE CONNECTION POOL EXHAUSTION                 │
+└─────────────────────────────────────────────────────────────────┘
+
+SYMPTOMS:
+- "Cannot acquire database connection" error
+- Slow response times across all transactions
+- Service degradation during peak hours
+- Error E303: Database connection timeout
+
+ROOT CAUSE ANALYSIS:
+
+Monitor Connection Pool:
+→ Current active connections: SELECT count(*) FROM v$session
+→ Maximum connections configured: show max_connections
+→ Connection wait time: Increasing indicates exhaustion
+→ Long-running queries blocking connections
+
+Typical Causes:
+1. Connection leak: Not closing connections in code
+2. Inefficient queries: Long-running transactions
+3. Peak load: More concurrent users than pool size
+4. Connection timeout too low: Premature disconnection
+5. Database server resource constraint: CPU/Memory
+
+DIAGNOSTIC COMMANDS:
+
+Check Active Sessions:
+```sql
+SELECT username, program, status, COUNT(*)
+FROM v$session
+GROUP BY username, program, status
+ORDER BY COUNT(*) DESC;
+```
+
+Identify Blocking Sessions:
+```sql
+SELECT blocking_session, sid, serial#, wait_time, seconds_in_wait
+FROM v$session
+WHERE blocking_session IS NOT NULL;
+```
+
+Long-Running Queries:
+```sql
+SELECT sql_id, elapsed_time/1000000 as seconds, executions
+FROM v$sql
+WHERE elapsed_time > 10000000
+ORDER BY elapsed_time DESC;
+```
+
+RESOLUTION STEPS:
+
+Immediate Relief (5 minutes):
+1. Increase connection pool size temporarily
+   - Edit: /etc/app/database.conf
+   - Change: max_connections = 200 → 500
+   - Restart app servers (rolling restart for zero downtime)
+
+2. Kill idle connections
+   ```sql
+   SELECT pg_terminate_backend(pid)
+   FROM pg_stat_activity
+   WHERE state = 'idle'
+   AND state_change < current_timestamp - INTERVAL '10 minutes';
+   ```
+
+3. Clear connection pool and reinitialize
+   - App command: /opt/app/bin/clear-pool.sh
+   - Connections released and recreated
+
+Long-term Fix:
+1. Code review: Ensure proper connection closing
+   - Use try-with-resources (Java)
+   - Context managers (Python)
+   - Defer/finally blocks
+
+2. Optimize queries:
+   - Add indexes on frequently queried columns
+   - Avoid SELECT * (fetch only needed columns)
+   - Use pagination for large result sets
+   - Cache frequent queries (Redis)
+
+3. Connection pool tuning:
+   - Min pool size: 50 (always ready)
+   - Max pool size: 500 (peak load handling)
+   - Connection timeout: 30 seconds
+   - Idle timeout: 10 minutes
+   - Max lifetime: 30 minutes (prevent stale connections)
+
+4. Database server scaling:
+   - Vertical: Increase CPU/RAM
+   - Horizontal: Read replicas for reporting queries
+   - Partition large tables by date range
+
+MONITORING & ALERTS:
+- Alert when pool usage >80%
+- Dashboard showing connection metrics
+- Slow query log analysis weekly
+- Auto-scaling triggers at 70% usage
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+APPENDIX: QUICK REFERENCE - ERROR CODES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+E101 - ATM cash dispenser hardware failure
+E102 - ATM note jam detected
+E103 - ATM sensor malfunction
+E201 - Network connectivity lost
+E202 - Router/switch offline
+E303 - Database connection timeout
+E404 - Account not found in system
+E505 - Insufficient funds
+E606 - Daily transaction limit exceeded
+E707 - Authentication failure
+E808 - System maintenance mode
+E909 - Regulatory compliance check failed
+E1010 - Duplicate transaction detected
+E1111 - Card expired or invalid
+E1212 - OTP verification failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    END OF TROUBLESHOOTING GUIDE
+           For technical support: techsupport@bank.com
+                    Emergency Hotline: 1-800-911-TECH
+                    Last Updated: January 2025
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

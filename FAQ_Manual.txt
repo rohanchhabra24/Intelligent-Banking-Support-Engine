@@ -1,0 +1,567 @@
+═══════════════════════════════════════════════════════════════════
+                    CUSTOMER SUPPORT FAQ MANUAL
+                          Version 2.5 - 2025
+              Banking Operations & Technical Support
+═══════════════════════════════════════════════════════════════════
+
+TABLE OF CONTENTS
+─────────────────
+1. ATM Services FAQ
+2. Internet Banking FAQ
+3. Mobile Banking FAQ
+4. Credit Card Operations FAQ
+5. Payment Processing FAQ
+6. Loan Management FAQ
+7. Core Banking Systems FAQ
+8. Fraud & Security FAQ
+9. Regulatory & Compliance FAQ
+10. General Support FAQ
+
+═══════════════════════════════════════════════════════════════════
+SECTION 1: ATM SERVICES FAQ
+═══════════════════════════════════════════════════════════════════
+
+Q1.1: What should I do if the ATM doesn't dispense cash but debits my account?
+
+A: This is a critical issue requiring immediate action:
+1. Note the transaction reference number from the screen or receipt
+2. Check your account balance within 2 hours via mobile banking
+3. File a dispute immediately through our customer support (1-800-BANK-911)
+4. Provisional credit will be issued within 24 hours
+5. Investigation completes within 5-7 business days
+6. Keep the ATM receipt as evidence
+
+PRIORITY: High | RESOLUTION TIME: 24-48 hours | CATEGORY: ATM Services
+
+Q1.2: My ATM card is stuck in the machine. How do I retrieve it?
+
+A: Follow this immediate procedure:
+1. Do NOT leave the ATM location if possible
+2. Call our ATM helpline immediately: 1-800-ATM-HELP
+3. Note the ATM location code (displayed on screen or machine)
+4. Card will be retrieved by next cash replenishment (usually 24-48 hours)
+5. Request temporary card issuance at nearest branch
+6. File police report if ATM is in unsafe location
+
+PRIORITY: Medium | RESOLUTION TIME: 24-48 hours | ESCALATION: ATM Operations Team
+
+Q1.3: ATM screen is frozen during transaction. What now?
+
+A: Technical freeze resolution:
+1. Wait 60 seconds - system may auto-recover
+2. Do NOT repeatedly press buttons
+3. If frozen >2 minutes, contact support with ATM ID
+4. Do NOT share PIN or card details over phone
+5. Transaction will auto-reverse within 48 hours if incomplete
+6. Check account after 4 hours for any unauthorized debits
+
+PRIORITY: Medium | AUTO-REVERSAL: 48 hours | AFFECTED CUSTOMERS: Individual
+
+Q1.4: ATM deposit not showing in my account. How long does it take?
+
+A: Deposit processing timeline:
+1. Cash deposits: Instant to 2 hours during banking hours
+2. Check deposits: 1-2 business days for clearance
+3. After-hours deposits: Next business day morning
+4. Verify deposit receipt matches amount deposited
+5. If delayed >4 hours, contact support with receipt number
+6. Provisional credit available for regular customers
+
+PRIORITY: Medium | STANDARD PROCESSING: 2-4 hours | SLA: Same business day
+
+═══════════════════════════════════════════════════════════════════
+SECTION 2: INTERNET BANKING FAQ
+═══════════════════════════════════════════════════════════════════
+
+Q2.1: Cannot login to internet banking. Password not working.
+
+A: Login troubleshooting steps:
+1. Verify Caps Lock is OFF
+2. Clear browser cache and cookies
+3. Try different browser (Chrome, Firefox, Edge)
+4. Use "Forgot Password" - reset link sent to registered email
+5. Check if account is locked after 3 failed attempts (auto-unlock in 30 min)
+6. If email not received, contact support for manual unlock
+
+PRIORITY: Low-Medium | SELF-SERVICE: Yes | RESOLUTION: 5-15 minutes
+
+Q2.2: Transaction history missing for the last few days. Where is it?
+
+A: Transaction visibility issues:
+1. Check if viewing correct account (current/savings)
+2. Adjust date range filter - default shows last 30 days
+3. Clear browser cache - may show cached old data
+4. Batch processing runs every 4 hours - recent transactions may lag
+5. Download statement for complete transaction list
+6. If >24 hours missing, escalate to IT support
+
+PRIORITY: Low | DATA SYNC: Every 4 hours | INVESTIGATION: 2-4 hours
+
+Q2.3: Fund transfer failing with error code E303. What does it mean?
+
+A: Error E303 indicates database connection timeout:
+1. This is a temporary technical issue
+2. Retry after 5 minutes
+3. If persists, try during off-peak hours (10 PM - 6 AM)
+4. Check system status page: status.bank.com
+5. Contact support if urgent - manual transfer possible
+6. Transaction will NOT be deducted if error occurs
+
+PRIORITY: Medium | ERROR TYPE: Technical | RETRY: Automatic safe
+
+Q2.4: Bill payment option not available for my biller. How to add?
+
+A: Biller registration process:
+1. Click "Add New Biller" in Bill Pay section
+2. Search by biller name or category
+3. If not listed, use "Add Custom Biller" option
+4. Enter biller account number and confirm details
+5. Verification takes 24-48 hours
+6. Use NEFT/RTGS for immediate payment as alternative
+
+PRIORITY: Low | PROCESSING TIME: 24-48 hours | WORKAROUND: Available
+
+═══════════════════════════════════════════════════════════════════
+SECTION 3: MOBILE BANKING FAQ
+═══════════════════════════════════════════════════════════════════
+
+Q3.1: Mobile app crashes immediately on startup. How to fix?
+
+A: App crash troubleshooting:
+1. Force close app and restart phone
+2. Clear app cache: Settings > Apps > Bank App > Clear Cache
+3. Check for app updates in Play Store/App Store
+4. Uninstall and reinstall app (data won't be lost)
+5. Ensure phone OS is updated to minimum required version
+6. If persists, report bug with phone model to support
+
+PRIORITY: Medium | DEVICE ISSUE: Possible | RESOLUTION: 15-30 minutes
+
+Q3.2: Fingerprint authentication not working suddenly.
+
+A: Biometric authentication fix:
+1. Re-register fingerprint in phone settings
+2. Clean fingerprint sensor on phone
+3. Disable and re-enable biometric login in app settings
+4. Use PIN/password as temporary login method
+5. Check if phone OS was recently updated (may cause conflicts)
+6. Some phone models not compatible - check compatibility list
+
+PRIORITY: Low | WORKAROUND: PIN login | COMPATIBILITY: Check required
+
+Q3.3: Push notifications for transactions not received.
+
+A: Notification troubleshooting:
+1. Check notification permissions: Settings > Apps > Bank App > Notifications
+2. Ensure app is not in battery optimization/power saving mode
+3. Check "Do Not Disturb" is not blocking app notifications
+4. Toggle notifications OFF then ON in app settings
+5. SMS alerts available as backup notification method
+6. Email alerts can also be enabled in preferences
+
+PRIORITY: Low | ALTERNATIVE: SMS/Email alerts | BATTERY OPTIMIZATION: Check
+
+Q3.4: QR code scanner not opening in app.
+
+A: Camera permission issue:
+1. Grant camera permission: Settings > Apps > Bank App > Permissions
+2. Check if another app is using camera
+3. Restart phone and try again
+4. Clear app cache and data
+5. Use manual entry option for UPI/payment
+6. Update app to latest version - bug may be fixed
+
+PRIORITY: Low | WORKAROUND: Manual entry | PERMISSION: Required
+
+═══════════════════════════════════════════════════════════════════
+SECTION 4: CREDIT CARD OPERATIONS FAQ
+═══════════════════════════════════════════════════════════════════
+
+Q4.1: Card blocked due to suspected fraud. How to unblock?
+
+A: Fraud block resolution:
+1. Verify recent transactions via SMS/email alerts
+2. Call fraud helpline: 1-800-FRAUD-00
+3. Confirm legitimate transactions to lift block
+4. If fraud confirmed, card will be replaced (3-5 days)
+5. Report unauthorized transactions for chargeback
+6. Temporary limit increase available while replacement ships
+
+PRIORITY: High | RESPONSE TIME: Immediate | CARD REPLACEMENT: 3-5 days
+
+Q4.2: Credit limit increase approved but not showing.
+
+A: Limit update processing:
+1. Limit updates process in batch (every 4 hours)
+2. Check after next batch cycle
+3. If urgent, request manual sync from customer support
+4. Clear app/browser cache to see updated limit
+5. Limit reflects on authorization system within 30 minutes
+6. Physical card shows old limit but system uses new limit
+
+PRIORITY: Low | BATCH PROCESSING: Every 4 hours | MANUAL SYNC: 15 minutes
+
+Q4.3: Unauthorized transaction on my card. What to do?
+
+A: Fraud transaction procedure:
+1. Immediately block card via app/website or call support
+2. File fraud dispute within 60 days of transaction
+3. Provide transaction details and reason for dispute
+4. Provisional credit issued within 10 business days
+5. Investigation takes 30-45 days
+6. Change all online shopping passwords
+7. Consider fraud protection service
+
+PRIORITY: Critical | BLOCK TIME: Immediate | PROVISIONAL CREDIT: 10 days
+
+Q4.4: EMI conversion request pending for 2 weeks.
+
+A: EMI conversion processing:
+1. Standard processing time: 5-7 business days
+2. Check if transaction is eligible (usually >$500 and <60 days old)
+3. Ensure minimum 3 months tenure available on card validity
+4. Contact support with transaction reference for status
+5. If delayed, manual processing can be expedited
+6. EMI appears on next billing cycle
+
+PRIORITY: Low | STANDARD TIME: 5-7 days | ELIGIBILITY: Check required
+
+═══════════════════════════════════════════════════════════════════
+SECTION 5: PAYMENT PROCESSING FAQ
+═══════════════════════════════════════════════════════════════════
+
+Q5.1: ACH payment file upload validation failed. Common errors?
+
+A: File validation checklist:
+1. Verify NACHA standard format compliance
+2. Check routing numbers are exactly 9 digits
+3. Ensure account numbers don't exceed 17 characters
+4. Remove special characters from beneficiary names
+5. Verify file encoding is UTF-8 or ASCII
+6. Check effective date is not in the past
+7. Total debit/credit amounts must balance
+
+PRIORITY: Medium | FILE FORMAT: NACHA | VALIDATION: Immediate
+
+Q5.2: Direct debit mandate not reflecting in system.
+
+A: Mandate activation process:
+1. Mandate activation takes 24-48 hours after approval
+2. Check if customer signed mandate form
+3. Verify bank account is active and valid
+4. Ensure mandate amount doesn't exceed account balance
+5. Check effective date and expiry date
+6. Force sync available for urgent cases
+
+PRIORITY: Medium | ACTIVATION TIME: 24-48 hours | FORCE SYNC: Available
+
+Q5.3: RTGS transaction stuck in processing for hours.
+
+A: RTGS processing timeline:
+1. RTGS operates in batches: 9 AM - 4:30 PM weekdays
+2. Cut-off time: 4:30 PM for same-day processing
+3. After hours transactions process next business day
+4. Check beneficiary bank for receiving delays
+5. Transaction tracking available via reference number
+6. If stuck >2 hours during banking hours, escalate
+
+PRIORITY: High | BATCH TIMING: Hourly | CUT-OFF: 4:30 PM
+
+Q5.4: Payment gateway timeout during checkout. Money deducted?
+
+A: Gateway timeout procedure:
+1. Check bank SMS/email for debit confirmation
+2. If debited, amount auto-refunds in 5-7 business days
+3. Do NOT retry payment immediately (may duplicate)
+4. Wait 15 minutes before retry
+5. Contact merchant to confirm order status
+6. File dispute if no refund after 7 days
+
+PRIORITY: Medium | AUTO-REFUND: 5-7 days | DUPLICATE RISK: High
+
+═══════════════════════════════════════════════════════════════════
+SECTION 6: LOAN MANAGEMENT FAQ
+═══════════════════════════════════════════════════════════════════
+
+Q6.1: EMI auto-debit failed this month. What happens?
+
+A: Failed EMI procedure:
+1. Check account balance on EMI debit date
+2. Verify auto-debit mandate is active
+3. Pay manually immediately to avoid late fees
+4. Late fee: $25-50 depending on loan amount
+5. Credit score impact after 30 days overdue
+6. Set up balance alerts before EMI date
+
+PRIORITY: High | LATE FEE: $25-50 | GRACE PERIOD: 7 days
+
+Q6.2: Loan closure request submitted 10 days ago. No update.
+
+A: Loan closure timeline:
+1. Standard processing: 5-7 business days
+2. Verify all outstanding dues paid including charges
+3. Check for any pending direct debits linked to loan
+4. NOC (No Objection Certificate) generated after closure
+5. Collateral release: Additional 7-10 days
+6. Contact loan operations for status update
+
+PRIORITY: Medium | PROCESSING: 5-7 days | NOC GENERATION: Automatic
+
+Q6.3: Prepayment penalty calculation seems wrong.
+
+A: Prepayment penalty verification:
+1. Check loan agreement for prepayment terms
+2. Usually 2-4% of outstanding principal
+3. Some loans have no penalty after 6-12 months
+4. RBI guidelines: No penalty for floating rate home loans
+5. Request detailed calculation from loan team
+6. Escalate if calculation doesn't match agreement
+
+PRIORITY: Medium | VERIFY: Loan agreement | ESCALATION: Available
+
+Q6.4: Interest rate change not applied to my loan.
+
+A: Interest rate update process:
+1. Rate changes apply from next billing cycle
+2. Floating rates update automatically per RBI changes
+3. Fixed rate loans: No change during tenure
+4. Check amortization schedule for updated rate
+5. Rate change notification sent via email/SMS
+6. Request fresh loan statement showing new rate
+
+PRIORITY: Low | UPDATE CYCLE: Monthly | VERIFICATION: Statement
+
+═══════════════════════════════════════════════════════════════════
+SECTION 7: CORE BANKING SYSTEMS FAQ
+═══════════════════════════════════════════════════════════════════
+
+Q7.1: Core banking system showing "Service Unavailable" error.
+
+A: System downtime handling:
+1. Check system status: status.bank.com
+2. Planned maintenance windows: Sundays 1-5 AM
+3. Emergency maintenance: Announced via SMS/email
+4. Use mobile app as alternative during downtime
+5. Critical transactions: Visit branch or call support
+6. SLA: 99.5% uptime excluding maintenance windows
+
+PRIORITY: Critical if widespread | MAINTENANCE: Sunday 1-5 AM | SLA: 99.5%
+
+Q7.2: Account balance showing incorrectly.
+
+A: Balance discrepancy resolution:
+1. Verify available balance vs. ledger balance
+2. Check for pending transactions/holds
+3. Clear browser cache and re-login
+4. Download account statement for verification
+5. Batch processing may delay balance updates (max 4 hours)
+6. If discrepancy >$100 or >24 hours, escalate immediately
+
+PRIORITY: High | VERIFICATION: Statement | ESCALATION: >$100 or >24hrs
+
+Q7.3: End of day processing taking longer than usual.
+
+A: EOD processing monitoring:
+1. Standard EOD time: 11 PM - 2 AM
+2. Large transaction volumes may extend to 4 AM
+3. Critical services remain available during EOD
+4. Batch reports available by 6 AM
+5. If EOD fails, rollback and retry scheduled
+6. Escalate to core banking team if delayed >6 AM
+
+PRIORITY: Critical for operations | STANDARD TIME: 11 PM - 2 AM | MONITORING: 24/7
+
+═══════════════════════════════════════════════════════════════════
+SECTION 8: FRAUD & SECURITY FAQ
+═══════════════════════════════════════════════════════════════════
+
+Q8.1: Received suspicious email asking for account details.
+
+A: Phishing email identification:
+1. NEVER click links in suspicious emails
+2. Bank NEVER asks for PIN/password via email
+3. Check sender email domain carefully (look for misspellings)
+4. Forward to phishing@bank.com for investigation
+5. Delete email and mark as spam
+6. Change password if you clicked any links
+7. Enable 2FA (Two-Factor Authentication)
+
+PRIORITY: High (Security) | ACTION: Do NOT click | REPORT: phishing@bank.com
+
+Q8.2: False fraud alert blocking legitimate purchase.
+
+A: Fraud alert override:
+1. Confirm you're making the transaction
+2. Call fraud team to verify and whitelist merchant
+3. Provide transaction details and merchant name
+4. One-time approval granted immediately
+5. Add merchant to trusted list for future
+6. Consider pre-travel notification for foreign transactions
+
+PRIORITY: Medium | WHITELIST: Immediate | PRE-TRAVEL: Recommended
+
+Q8.3: Suspicious login attempt detected. Account at risk?
+
+A: Login security procedure:
+1. Immediately change password if not you
+2. Review recent login history in security settings
+3. Enable 2FA if not already active
+4. Check for unauthorized devices in session management
+5. Revoke access to unknown devices
+6. Consider fraud monitoring service enrollment
+
+PRIORITY: High | PASSWORD CHANGE: Immediate | 2FA: Strongly recommended
+
+Q8.4: Card cloning suspected. What immediate steps?
+
+A: Card cloning response:
+1. Block card immediately via app or call 1-800-BLOCK-IT
+2. Review last 30 days transactions for unauthorized activity
+3. File police report with FIR number
+4. Request card replacement with new number
+5. Dispute fraudulent transactions within 60 days
+6. Consider EMV chip card upgrade
+7. Never share CVV or OTP with anyone
+
+PRIORITY: Critical | BLOCK: Immediate | REPLACEMENT: 3-5 days | FIR: Required
+
+═══════════════════════════════════════════════════════════════════
+SECTION 9: REGULATORY & COMPLIANCE FAQ
+═══════════════════════════════════════════════════════════════════
+
+Q9.1: Regulatory report submission deadline approaching. Format issues?
+
+A: Regulatory submission checklist:
+1. Verify format matches latest regulatory guidelines
+2. Common formats: XML (RBI), CSV (SEBI), PDF (signed)
+3. Validate against XSD schema before submission
+4. Check all mandatory fields populated
+5. Test submission with sample file first
+6. Submit 24 hours before deadline for contingency
+7. Keep submission confirmation for audit trail
+
+PRIORITY: Critical | DEADLINE: Strict | FORMAT: Per guidelines
+
+Q9.2: AML (Anti-Money Laundering) report generation errors.
+
+A: AML reporting troubleshooting:
+1. Verify customer KYC data is complete
+2. Check transaction threshold settings
+3. Ensure date range covers reporting period
+4. Validate suspicious transaction flagging logic
+5. Include all account types per regulations
+6. Generate test report for validation
+7. Escalate to compliance team if errors persist
+
+PRIORITY: High | COMPLIANCE: Mandatory | THRESHOLD: Per RBI norms
+
+Q9.3: KYC compliance report showing data gaps.
+
+A: KYC data completion:
+1. Identify missing fields in customer profiles
+2. Priority: PAN, Aadhaar, Address proof
+3. Initiate customer outreach for document submission
+4. Use video KYC for remote verification
+5. Set deadline for submission (usually 30 days)
+6. Freeze accounts if non-compliant per regulations
+7. Track completion rate for compliance reporting
+
+PRIORITY: High | MANDATORY DOCS: PAN, Aadhaar | ACCOUNT FREEZE: If non-compliant
+
+Q9.4: CTR (Cash Transaction Report) data validation failed.
+
+A: CTR validation fixes:
+1. Verify cash transaction threshold: ₹10 lakhs+ per day
+2. Check customer identification details complete
+3. Ensure transaction codes are correct
+4. Validate date formats: YYYY-MM-DD
+5. Cross-check totals with GL accounts
+6. Include all branches and channels
+7. Revalidate before final submission
+
+PRIORITY: Critical | THRESHOLD: ₹10L | SUBMISSION: Monthly to FIU
+
+═══════════════════════════════════════════════════════════════════
+SECTION 10: GENERAL SUPPORT FAQ
+═══════════════════════════════════════════════════════════════════
+
+Q10.1: How to escalate an unresolved support ticket?
+
+A: Escalation path:
+Level 1 (L1): Initial support team - Response: 2-4 hours
+Level 2 (L2): Technical specialists - Response: 4-8 hours
+Level 3 (L3): System engineers - Response: 8-24 hours
+Level 4 (L4): Vendor support - Response: 24-48 hours
+Management: Critical issues only - Response: Immediate
+
+PRIORITY: Based on issue | SLA: Per level | TRACKING: Ticket number
+
+Q10.2: Support ticket not resolved within SLA. What now?
+
+A: SLA breach procedure:
+1. Check ticket status and last update time
+2. Contact assigned support agent directly
+3. Request escalation to next level
+4. File complaint if SLA breach >24 hours
+5. Compensation policy may apply per agreement
+6. Critical issues: Call emergency hotline
+
+PRIORITY: Per ticket | SLA TRACKING: Automated | COMPENSATION: Policy-based
+
+Q10.3: Need historical ticket data for audit purposes.
+
+A: Ticket history retrieval:
+1. Access support portal with admin credentials
+2. Export tickets by date range, category, status
+3. Available formats: CSV, Excel, PDF
+4. Retention period: 7 years per regulations
+5. Include attachments if needed
+6. Request via support@bank.com for bulk export
+
+PRIORITY: Low | RETENTION: 7 years | EXPORT: Self-service available
+
+Q10.4: How to provide feedback on support quality?
+
+A: Feedback mechanisms:
+1. CSAT survey sent after ticket closure
+2. Rate agent performance (1-5 stars)
+3. Comment on resolution quality and timeliness
+4. Feedback reviewed by QA team weekly
+5. Positive feedback: Agent recognition
+6. Negative feedback: Retraining and process improvement
+
+PRIORITY: Low | SURVEY: Automatic | REVIEW: Weekly
+
+═══════════════════════════════════════════════════════════════════
+APPENDIX A: COMMON ERROR CODES
+═══════════════════════════════════════════════════════════════════
+
+E101 - Cash dispenser hardware error (ATM)
+E202 - Network connectivity issue
+E303 - Database connection timeout
+E404 - Account not found
+E505 - Insufficient funds
+E606 - Transaction limit exceeded
+E707 - Invalid authentication
+E808 - System maintenance in progress
+E909 - Regulatory compliance check failure
+E1010 - Duplicate transaction detected
+
+═══════════════════════════════════════════════════════════════════
+APPENDIX B: EMERGENCY CONTACTS
+═══════════════════════════════════════════════════════════════════
+
+General Support: 1-800-BANK-911
+ATM Helpline: 1-800-ATM-HELP
+Fraud Department: 1-800-FRAUD-00
+Card Blocking: 1-800-BLOCK-IT
+Regulatory Compliance: compliance@bank.com
+IT Support: itsupport@bank.com
+
+Available 24/7/365
+
+═══════════════════════════════════════════════════════════════════
+                        END OF FAQ MANUAL
+         For updates, visit: support.bank.com/faq-manual
+                    Last Updated: January 2025
+═══════════════════════════════════════════════════════════════════
